@@ -24,7 +24,23 @@ import rx.plugins.RxJavaHooks;
 import static com.example.iqbalhajat.chucknorris3.models.Model.Result;
 import static com.example.iqbalhajat.chucknorris3.models.Model.Value;
 
-
+/**
+ * TDD
+ *
+ * We are using TDD to affectively define our Text Input Acitivity behaviour
+ *
+ * Test 1: Test that upon receiving a joke, we display it
+ *
+ * Test 2: Test that if we receive an error whilst retrieving the joke, we display an error
+ *
+ * Test 3: Test the Observable itself
+ *
+ * These tests will then be used to define our code, by using contracts ( views ) that the activities themselves implement. This way, the refactoring of the code
+ * will not break these tests
+ *
+ * Note: Unfortunately, some of these tests are currently broken.
+ *
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class TextInputActivityPresenterTest {
     private static final String funny_joke = "Norris never goes to the dentist because his teeth are unbreakable. His enemies never go to the dentist because they have no teeth.";
