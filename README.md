@@ -88,4 +88,8 @@ Key points:
 
 6. We inject dependencies into the Activity, etc. Dependency Injection is a form of Dependency Inversion ( SOLID ). 
 
+7. Using Anko for dialog Boxes.
+
+8. Using a pagination library. Several libraries exist, so, no need to re-invent the wheel.
+
 Please note, this project is currently incomplete, it is missing the Dependency Injection using Dagger 2 and the Instrumentation Tests using Espresso and also some of the unit tests are broken.
