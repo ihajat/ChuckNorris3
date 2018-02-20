@@ -34,17 +34,29 @@ that more items are being requested.
 
 Work in Progress. The project is unfinished, but , here is a brief description of the structure.
 Main Folder structure:
+
 activites: contains all activities 
+
 adapters: contains the recycler view adpater 
+
 apis: contains our retrofit service interface definition
+
 components: contains the DI component interfaces 
+
 interceptors: where we subscribe the the observable 
+
 models: contains our POJOs 
+
 modules: contains the DI module classes 
+
 paginators: contains paginator class for pagination
+
 presenters: the presenters of MVP 
+
 repository: using the repository pattern, to separate the data layer
+
 utils: contains utils , like extension functions
+
 views: the view interfaces we present to the presenter
 
 Unit Tests:
