@@ -41,6 +41,8 @@ public class Paginator {
 
         //RECYCLERVIEW
         RecyclerView rv=pullToLoadView.getRecyclerView();
+
+
         rv.setLayoutManager(new LinearLayoutManager(c, LinearLayoutManager.VERTICAL,false));
 
         adapter=new MyAdapter(c,new ArrayList<CardJoke>());

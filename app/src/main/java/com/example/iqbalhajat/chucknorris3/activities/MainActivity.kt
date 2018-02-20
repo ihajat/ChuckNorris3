@@ -6,9 +6,16 @@ import android.util.Log
 import com.example.iqbalhajat.chucknorris3.*
 import com.example.iqbalhajat.chucknorris3.presenters.MainPresenter
 import com.example.iqbalhajat.chucknorris3.views.MainActivityView
-//import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ *  Main activity, used for default name random jokes
+ *
+ *  When the ‘Random Joke’ button is pressed the app should request a
+ *  single random joke from the server and then display it in a Dialog with a
+ *  dismiss button.
+ *
+ */
 class MainActivity : BaseActivity(), MainActivityView {
 
     private lateinit var presenter: MainPresenter

@@ -12,40 +12,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-//import rx.android.schedulers.AndroidSchedulers;
-
-//import io.reactivex.Scheduler;
-//import io.reactivex.android.schedulers.AndroidSchedulers;
-//import io.reactivex.annotations.NonNull;
-//import io.reactivex.schedulers.Schedulers;
-//import rx.Scheduler;
-//import rx.Scheduler;
-//import io.reactivex.android.schedulers.AndroidSchedulers;
-
-/**
- * Created by IqbalHajat on 18/02/2018.
- */
 
 public class MainPresenter {
     private static final String TAG = "MainPresenter";
     private MainActivityView view;
-//    private final Scheduler processScheduler;
-//    TestObserver testObserver;
-//    private final Scheduler mainScheduler;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private Repository repository = new Repository();
-//    private final SchedulerProvider mSchedulerProvider;
-
-//    public SchedulerProvider getSchedulerProvider() {
-//        return mSchedulerProvider;
-//    }
 
     public MainPresenter(MainActivityView view) {
 
         this.view = view;
-//        this.processScheduler = processScheduler;
-//        this.mainScheduler = mainScheduler;
-//        this.mSchedulerProvider = schedulerProvider;
     }
 
     
@@ -56,9 +32,9 @@ public class MainPresenter {
 
     public Observable<Model.Result> getObservable(String firstname, String lastname){
         return repository.getObservable(firstname,lastname)
-                .subscribeOn(Schedulers.io() ) // Schedulers.io()  //processScheduler
+                .subscribeOn(Schedulers.io() )
                 .observeOn(AndroidSchedulers.mainThread()
-                );  // mainScheduler/
+                );
     }
 
     public DisposableObserver<Model.Result> getObserver(){
@@ -72,7 +48,6 @@ public class MainPresenter {
 
             @Override
             public void onError( Throwable e) {
-//                Log.d(TAG,"Error"+e);
                 e.printStackTrace();
                 view.displayError();
             }
@@ -87,13 +62,4 @@ public class MainPresenter {
         compositeDisposable.clear();
     }
 
-    public static class NeverEndingListActivityPresenter {
-        private static final String TAG = "NeverEndingListActivityPresenter";
-        private NeverEndingListActivityView view;
-        private Repository repository = new Repository();
-
-        public NeverEndingListActivityPresenter(NeverEndingListActivityView view) {
-            this.view = view;
-        }
-    }
 }

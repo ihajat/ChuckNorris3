@@ -11,6 +11,19 @@ import com.example.iqbalhajat.chucknorris3.utils.getIndexOfLastNonWhitespace
 import com.example.iqbalhajat.chucknorris3.views.TextInputActivityView
 import kotlinx.android.synthetic.main.activity_text_input.*
 
+/**
+ *  Text Input activity, used for specifically inputted name random jokes
+ *
+    When the ‘Text input’ button is pressed the app should open a new
+    screen (can be a new Activity or a Fragment – your decision) with a single
+    Edittext and a ‘Submit’ Button.
+    Upon pressing the ‘Submit’ Button, the app should request a random joke
+    with a custom main character as described in the Changing the name of
+    the main character section of the API docs and show it in a Dialog.
+    App should handle the input validation and also first name / last name
+    splitting.
+ *
+ */
 class TextInputActivity :  TextInputActivityView, BaseActivity() {
     override fun displayError() {
         this.toast(getString(R.string.error_getting_joke_from_server))

@@ -8,8 +8,15 @@ import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
+/**
+ * A  Rule that replaces the default scheduler with an synchronous rule that can be used with unit testing
+ *
+ */
 public class ImmediateSchedulerRule implements TestRule {
+
+    /**  */
     private final Scheduler immediate = Schedulers.trampoline();
+
     @Override
     public Statement apply(final Statement base, Description description) {
         return new Statement() {

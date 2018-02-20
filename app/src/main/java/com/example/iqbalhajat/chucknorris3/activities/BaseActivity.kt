@@ -3,12 +3,11 @@ package com.example.iqbalhajat.chucknorris3.activities
 import android.app.Activity
 import android.content.Context
 import android.widget.Toast
-
-//import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import org.jetbrains.anko.alert
 
+/**
+ * Base activity used for toast extension, and catching the onPause event and and dialog box reused by child activities
+ */
 abstract  class  BaseActivity : Activity() {
 
     fun Context.toast(message: CharSequence) =
