@@ -63,9 +63,11 @@ Unit Tests:
 
 folder structures:
 
-presenters: contains all the unit test for the presenters
-rules: custom rules, used for testing observables
-utils: utils , like predicates
+1) presenters: contains all the unit test for the presenters
+
+2) rules: custom rules, used for testing observables
+
+3) utils: utils , like predicates
 
 1. Using MVP structure
 
