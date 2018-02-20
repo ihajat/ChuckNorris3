@@ -11,6 +11,7 @@
     <string name="submit">Submit</string>
     <string name="error_getting_joke_from_server">Error Getting Joke from Server</string>
     <string name="no_joke_found">No Joke Found</string>
+    <string name="displayjoke">displayJoke</string>
 
 
 </resources>
