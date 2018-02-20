@@ -18,6 +18,9 @@ import static junit.framework.Assert.assertTrue;
 @RunWith(MockitoJUnitRunner.class)
 public class NeverEndingListActivityPresenterTest {
 
+    /**
+     * TDD: Test 1: test Web Service API Call returns 20 Jokes ONLY
+     */
     @Test
     public void testWebServiceAPICallReturns20Jokes() {
 
