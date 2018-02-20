@@ -69,6 +69,9 @@ folder structures:
 
 3) utils: utils , like predicates
 
+
+Key points:
+
 1. Using MVP structure
 
 2. The MainViews defines the interface that provides the functionality for this app. We can use this to guide the TDD. So, first, we create a test called, testReadFile, which fails. We then write the code for it until it passes and then refactor the code, as required.
