@@ -1,0 +1,7 @@
+
+squid:S1319"uThe type of the "spaceships" object should be an interface such as "List" rather than the implementation "ArrayList".(ùåäÍÿÿÿÿÿ
+Lsquid:S1905"+Remove this unnecessary cast to "TextView".(»áùÿÿÿÿ8Éâ±†›,
+Usquid:CallToDeprecatedMethod"0Remove this use of "fromHtml"; it is deprecated.(‹¸óQ
+xsquid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "holder".(ô´ŞËşÿÿÿÿ
+:squid:S1659"&Declare "titleTxt" on a separate line.(›ú¥;
+Gsquid:S1905"+Remove this unnecessary cast to "TextView".(ƒğ—š8Éâ±†›,

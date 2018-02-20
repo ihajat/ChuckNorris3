@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ChuckNorris3</string>
+
+    <!-- Main Page -->
+    <string name="text_input">Text input</string>
+    <string name="never_ending_list">Never ending list</string>
+    <string name="random_joke">Random joke</string>
+
+    <!-- Input Name Page -->
+    <string name="enter_firstname_and_lastname">Enter firstname and lastname</string>
+    <string name="submit">Submit</string>
+    <string name="error_getting_joke_from_server">Error Getting Joke from Server</string>
+    <string name="no_joke_found">No Joke Found</string>
+
+
+</resources>
