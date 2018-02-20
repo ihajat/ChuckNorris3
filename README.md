@@ -4,6 +4,12 @@ Chuck Norris jokes
 Basic App that shows a simple application that will interact with
 The Internet Chuck Norris Database API (http://www.icndb.com/api/).
 
+Since this app is about joke based around Chuck Norris. Let's start with a joke that never fails to bring a smile to my face :
+
+"Norris never goes to the dentist because his teeth are unbreakable. His enemies never go to the dentist because they have no teeth."
+
+
+
 the starting screen:
 1) Random joke
 2) Text input
