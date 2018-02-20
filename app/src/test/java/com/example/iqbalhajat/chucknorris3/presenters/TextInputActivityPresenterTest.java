@@ -27,6 +27,7 @@ import static com.example.iqbalhajat.chucknorris3.models.Model.Value;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TextInputActivityPresenterTest {
+    private static final String funny_joke = "Norris never goes to the dentist because his teeth are unbreakable. His enemies never go to the dentist because they have no teeth.";
 
     @Mock
     TextInputActivityView view;
@@ -78,7 +79,7 @@ public class TextInputActivityPresenterTest {
         });
 
         randomJoke = new Joke();
-        mResult = new Result(new Value(3,"Chuck is good"));
+        mResult = new Result(new Value(3,funny_joke));
         mMockWebServer = new MockWebServer();
         mSubscriber = new TestObserver<>();
     }
@@ -87,15 +88,50 @@ public class TextInputActivityPresenterTest {
     public void tearDown() throws Exception {
     }
 
-
-
+    /**
+     * TDD: Test 1: Check that on a successful retrieval of a joke, the view with a joke is displayed
+     */
     @Test
-    public void shouldGetChuckNorrisJoke2() throws Exception {
-        Mockito.when(repository.getObservable("Chuck","Norris")).thenReturn(
-                Observable.just( new Result(new Value(12,"Chuck is good"))
+    public void shouldDisplayChuckNorrisJoke() throws Exception {
+
+        //given
+        Observable<Result> observable =repository.getObservable("Chuck","Norris");
+
+        Mockito.when(observable).thenReturn(Observable.just( new Result(new Value(12,funny_joke))));
+
+        presenter.getJoke("Chuck","Norris");
+
+        //then
+        Mockito.verify(view).displayJoke(funny_joke);
+    }
+
+    /**
+     * TDD: Test 2: Check that on a non-successful retrieval of a joke, an error is displayed
+     */
+    @Test
+    public void shouldDisplayErrorIfFailsToGetJoke() throws Exception {
+
+        //given
+        Observable<Result> observable =repository.getObservable("Chuck","Norris");
+
+        Mockito.when(observable).thenReturn(Observable.error(new Exception("test")));
+
+        presenter.getJoke("Chuck","Norris");
+
+        //then
+        Mockito.verify(view).displayError();
+    }
+    
+    /**
+     * TDD: Test 3: test Observable Behaviour
+     */
+    @Test
+    public void testObservableBehaviour() throws Exception {
+        Mockito.when(repository.getObservable("Fred","Flinstone")).thenReturn(
+                Observable.just( new Result(new Value(12,funny_joke))
                 ));
 
-        TestObserver<Result> testObserver = repository.getObservable("Chuck","Norris")
+        TestObserver<Result> testObserver = repository.getObservable("Fred","Flinstone")
                 .test();
         testObserver.awaitTerminalEvent();
 
@@ -107,7 +143,7 @@ public class TextInputActivityPresenterTest {
 
     public static boolean assertIfChuckMissing(String joke){
         System.out.println(joke);
-        return (joke).contains("Chuck");
+        return (joke).contains("Fred");
     }
 
 

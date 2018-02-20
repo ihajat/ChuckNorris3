@@ -29,6 +29,8 @@ import static com.example.iqbalhajat.chucknorris3.models.Model.Value;
 @RunWith(MockitoJUnitRunner.class)
 public class MainMenuActivityPresenterTest {
 
+    private static final String funny_joke = "Norris never goes to the dentist because his teeth are unbreakable. His enemies never go to the dentist because they have no teeth.";
+
     @Mock
     MainActivityView view;
     @Mock
@@ -79,7 +81,7 @@ public class MainMenuActivityPresenterTest {
 
         randomJoke = new Joke();
 
-        mResult = new Result(new Value(3,"Chuck is good"));
+        mResult = new Result(new Value(3,funny_joke));
         mMockWebServer = new MockWebServer();
         mSubscriber = new TestObserver<>();
     }
@@ -90,9 +92,28 @@ public class MainMenuActivityPresenterTest {
 
     }
 
-
+    /**
+     * TDD: Test 1: Check that on a successful retrieval of a joke, the view with a joke is displayed
+     */
     @Test
-    public void shouldGetChuckNorrisJoke() throws Exception {
+    public void shouldDisplayChuckNorrisJoke() throws Exception {
+
+        //given
+        Observable<Result> observable =repository.getObservable("Chuck","Norris");
+
+        Mockito.when(observable).thenReturn(Observable.just( new Result(new Value(12,funny_joke))));
+
+        presenter.getJoke("Chuck","Norris");
+
+        //then
+        Mockito.verify(view).displayJoke(funny_joke);
+    }
+
+    /**
+     * TDD: Test 2: Check that on a non-successful retrieval of a joke, an error is displayed
+     */
+    @Test
+    public void shouldDisplayErrorIfFailsToGetJoke() throws Exception {
 
         //given
         Observable<Result> observable =repository.getObservable("Chuck","Norris");
@@ -105,10 +126,13 @@ public class MainMenuActivityPresenterTest {
         Mockito.verify(view).displayError();
     }
 
+    /**
+     * TDD: Test 3: test Observable Behaviour
+     */
     @Test
-    public void shouldGetChuckNorrisJoke2() throws Exception {
+    public void testObservableBehaviour() throws Exception {
         Mockito.when(repository.getObservable("Chuck","Norris")).thenReturn(
-                Observable.just( new Result(new Value(12,"Chuck is good"))
+                Observable.just( new Result(new Value(12,funny_joke))
                 ));
 
         TestObserver<Model.Result> testObserver = repository.getObservable("Chuck","Norris")
